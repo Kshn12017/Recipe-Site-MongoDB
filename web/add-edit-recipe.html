@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add/Edit Recipe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">RecipeApp</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Add Recipe</a></li>
+                <li><a href="#">My Recipes</a></li>
+            </ul>
+            <input type="text" class="search-bar" placeholder="Search recipes...">
+        </div>
+    </nav>
+
+    <!-- Recipe Form -->
+    <section class="recipe-form">
+        <div class="form-container">
+            <h1>Add/Edit Recipe</h1>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                <label for="title">Recipe Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="prep-time">Preparation Time:</label>
+                <input type="text" id="prep-time" name="prep-time" required>
+
+                <label for="ingredients">Ingredients:</label>
+                <textarea id="ingredients" name="ingredients" rows="5" required></textarea>
+
+                <label for="steps">Steps:</label>
+                <textarea id="steps" name="steps" rows="5" required></textarea>
+
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 RecipeApp. All rights reserved.</p>
+    </footer>
+</body>
+</html>
