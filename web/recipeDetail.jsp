@@ -17,7 +17,6 @@
                     <li><a href="recipes">Home</a></li>
                     <li><a href="addRecipe.jsp">Add Recipe</a></li>
                 </ul>
-                <input type="text" class="search-bar" placeholder="Search recipes...">
             </div>
         </nav>
 
