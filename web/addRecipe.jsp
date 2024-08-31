@@ -1,53 +1,49 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add/Edit Recipe</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">RecipeApp</a>
+            <a href="recipes" class="logo">Recipe App</a>
             <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Add Recipe</a></li>
-                <li><a href="#">My Recipes</a></li>
+                <li><a href="recipes">Home</a></li>
+                <li><a href="addRecipe.jsp">Add Recipe</a></li>
             </ul>
             <input type="text" class="search-bar" placeholder="Search recipes...">
         </div>
     </nav>
 
-    <!-- Recipe Form -->
     <section class="recipe-form">
         <div class="form-container">
-            <h1>Add/Edit Recipe</h1>
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <h1>Add Recipe</h1>
+            <form action="recipes" method="POST">
                 <label for="title">Recipe Title:</label>
                 <input type="text" id="title" name="title" required>
 
                 <label for="prep-time">Preparation Time:</label>
-                <input type="text" id="prep-time" name="prep-time" required>
+                <input type="text" id="prep-time" name="preparationTime" required>
 
                 <label for="ingredients">Ingredients:</label>
                 <textarea id="ingredients" name="ingredients" rows="5" required></textarea>
 
-                <label for="steps">Steps:</label>
+                <label for="steps">Steps:</label><p>*separate each step with a .[dot]</p>
                 <textarea id="steps" name="steps" rows="5" required></textarea>
 
-                <label for="image">Upload Image:</label>
-                <input type="file" id="image" name="image" accept="image/*">
+                <label for="imageUrl">Image URL:</label>
+                <input type="text" id="imageUrl" name="imageUrl">
 
                 <button type="submit" class="btn">Submit</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 RecipeApp. All rights reserved.</p>
+        <p>&copy; 2024 Recipe App. All rights reserved.</p>
     </footer>
 </body>
 </html>
