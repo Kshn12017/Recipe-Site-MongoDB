@@ -18,7 +18,7 @@ The Recipe Management Application is a simple web application that allows users 
 - **Frontend**: HTML, CSS, JSP
 - **Backend**: Java Servlets
 - **Database**: MongoDB
-- **Server**: Apache Tomcat (or GlassFish)
+- **Server**: GlassFish
 - **Development Environment**: NetBeans IDE
 
 ## Setup Instructions
@@ -28,12 +28,12 @@ The Recipe Management Application is a simple web application that allows users 
 - **Java**: Ensure that you have JDK installed (version 8 or higher).
 - **NetBeans IDE**: You can use other IDEs as well, but this project was developed using NetBeans.
 - **MongoDB**: Install MongoDB and ensure it's running on your local machine or a cloud-based instance.
-- **Apache Tomcat**: Or any other servlet container of your choice.
+- **Glashfish**: Or any other servlet container of your choice.
 
 ### Steps to Run the Application
 
 1. **Clone the Repository**:
-   git clone https://github.com/your-username/RecipeManagementApp.git
+   git clone https://github.com/Kshn12017/RecipeManagementApp.git
 
 2. **Import the Project**:
 - Open NetBeans (or your preferred IDE).
