@@ -2,6 +2,10 @@
 <%@page import="com.example.recipe.Recipe"%>
 <%@page import="com.example.recipe.RecipeDAO"%>
 <%@page import="org.bson.types.ObjectId" %>
+<%
+    String role = (String) session.getAttribute("role");
+    String username = (String) session.getAttribute("username");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +19,15 @@
                 <a href="recipes" class="logo">Recipe App</a>
                 <ul class="nav-links">
                     <li><a href="recipes">Home</a></li>
+                        <% if ("admin".equals(role)) { %>
                     <li><a href="addRecipe.jsp">Add Recipe</a></li>
+                        <% }
+                            if (session != null && username != null) {
+                        %>
+                    <li><a href="<%= request.getContextPath()%>/logout">Logout</a></li>
+                        <%
+                            }
+                        %>
                 </ul>
             </div>
         </nav>
@@ -59,9 +71,11 @@
                         <li><%= step.trim()%></li>
                             <% }%>
                     </ol>
+                    <% if ("admin".equals(role)) {%>
                     <div class="update-div">
                         <a href="editRecipe.jsp?id=<%= recipe.getId()%>" class="btn" style="margin: auto">Edit Recipe</a>
                     </div>
+                    <% }%>
                 </div>
             </div>
         </section>

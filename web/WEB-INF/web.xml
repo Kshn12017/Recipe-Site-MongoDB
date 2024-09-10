@@ -4,7 +4,12 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
     
-    <!-- RecipeServlet to handle listing and displaying recipes -->
+    <!-- Redirect root URL to /recipes -->
+    <welcome-file-list>
+        <welcome-file>recipes</welcome-file>
+    </welcome-file-list>
+    
+    <!-- Recipe Servlet -->
     <servlet>
         <servlet-name>RecipeServlet</servlet-name>
         <servlet-class>com.example.recipe.RecipeServlet</servlet-class>
@@ -14,7 +19,7 @@
         <url-pattern>/recipes</url-pattern>
     </servlet-mapping>
 
-    <!-- RecipeUpdateServlet to handle updating recipes -->
+    <!-- Recipe Update Servlet-->
     <servlet>
         <servlet-name>RecipeUpdateServlet</servlet-name>
         <servlet-class>com.example.recipe.RecipeUpdateServlet</servlet-class>
@@ -24,7 +29,7 @@
         <url-pattern>/updateRecipe</url-pattern>
     </servlet-mapping>
 
-    <!-- RecipeSearchServlet to handle searching recipes-->
+    <!-- Recipe Search Servlet-->
     <servlet>
         <servlet-name>RecipeSearchServlet</servlet-name>
         <servlet-class>com.example.recipe.RecipeSearchServlet</servlet-class>
@@ -33,6 +38,47 @@
         <servlet-name>RecipeSearchServlet</servlet-name>
         <url-pattern>/searchRecipe</url-pattern>
     </servlet-mapping>
+
+    <!-- Authentication Filter-->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.example.recipe.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Login Servlet-->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.example.recipe.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <!-- Logout Servlet-->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.example.recipe.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Delete Recipe Servlet-->
+    <servlet>
+        <servlet-name>DeleteRecipeServlet</servlet-name>
+        <servlet-class>com.example.recipe.DeleteRecipeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteRecipeServlet</servlet-name>
+        <url-pattern>/deleteRecipe</url-pattern>
+    </servlet-mapping>
+
 
     <!-- You can add more servlets and mappings here as needed -->
 

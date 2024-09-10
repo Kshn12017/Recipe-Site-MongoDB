@@ -1,6 +1,9 @@
 <%@page import="java.util.List"%>
 <%@page import="com.example.recipe.Recipe"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    String role = (String) session.getAttribute("role");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +17,16 @@
                 <a href="recipes" class="logo">Recipe App</a>
                 <ul class="nav-links">
                     <li><a href="recipes">Home</a></li>
+                        <%-- Display Add Recipe button only for admin --%>
+                        <% if ("admin".equals(role)) { %>
                     <li><a href="addRecipe.jsp">Add Recipe</a></li>
+                        <% }
+                            if (session != null && session.getAttribute("username") != null) {
+                        %>
+                    <li><a href="<%= request.getContextPath()%>/logout">Logout</a></li>
+                        <%
+                            }
+                        %>
                 </ul>
             </div>
         </nav>
@@ -40,6 +52,10 @@
                         <h3><%= recipe.getTitle()%></h3>
                         <p><%= recipe.getPreparationTime()%></p>
                         <a href="recipeDetail.jsp?id=<%= recipe.getId()%>" class="btn">View Details</a>
+                        <% if ("admin".equals(role)) {%>
+                        <a href="editRecipe.jsp?id=<%= recipe.getId()%>" class="btn">Edit</a>
+                        <a href="deleteRecipe.jsp?id=<%= recipe.getId()%>" class="btn">Delete</a>
+                        <% } %>
                     </div>
                 </div>
                 <%
@@ -49,7 +65,9 @@
                 <!-- No Results Found Message -->
                 <div class="no-results">
                     <h3>Oops! Looks like we don't have that recipe. Want to add it?</h3>
+                    <% if ("admin".equals(role)) {%>
                     <a href="addRecipe.jsp" class="btn">Add Recipe</a>
+                    <% } %>
                 </div>
                 <%
                     }
